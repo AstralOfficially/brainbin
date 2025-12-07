@@ -1,0 +1,160 @@
+# **NMAP CHEAT SHEET**
+### *Network Mapper — Essential Commands for Security & Reconnaissance*
+
+---
+
+## **1. Basic Scans**
+```
+nmap <target>                     
+nmap -sn <target>                 
+nmap -Pn <target>                 
+```
+**Default scan**  
+**Host discovery only**  
+**Skip ping; treat host as up**
+
+---
+
+## **2. Port Scanning**
+```
+nmap -p 80 <target>               
+nmap -p 1-1000 <target>           
+nmap -p- <target>                 
+nmap -F <target>                  
+```
+**Specific port**  
+**Port range**  
+**All 65535 ports**  
+**Fast scan (top 100 ports)**
+
+---
+
+## **3. Scan Types**
+```
+nmap -sS <target>                 
+nmap -sT <target>                 
+nmap -sU <target>                 
+nmap -sA <target>                 
+nmap -sN <target>                 
+nmap -sF <target>                 
+nmap -sX <target>                 
+```
+**SYN (half‑open)**  
+**TCP connect**  
+**UDP scan**  
+**ACK scan (firewall mapping)**  
+**Null scan**  
+**FIN scan**  
+**Xmas scan**
+
+---
+
+## **4. Service & Version Detection**
+```
+nmap -sV <target>                 
+nmap -sV --version-intensity 9    
+```
+**Service/version detection**  
+**Aggressive version detection**
+
+---
+
+## **5. OS Detection**
+```
+nmap -O <target>                  
+nmap -A <target>                  
+```
+**OS fingerprinting**  
+**OS + version + scripts + traceroute**
+
+---
+
+## **6. Nmap Scripting Engine (NSE)**
+```
+nmap --script <script> <target>   
+nmap --script vuln <target>       
+nmap --script safe <target>       
+nmap --script discovery <target>  
+```
+**Run script**  
+**Vulnerability scripts**  
+**Safe scripts**  
+**Discovery scripts**
+
+---
+
+## **7. Timing Templates**
+```
+nmap -T0 <target>                 
+nmap -T1 <target>                 
+nmap -T2 <target>                 
+nmap -T3 <target>                 
+nmap -T4 <target>                 
+nmap -T5 <target>                 
+```
+**Paranoid**  
+**Sneaky**  
+**Polite**  
+**Normal**  
+**Aggressive (fast)**  
+**Insane (very fast)**
+
+---
+
+## **8. Output Options**
+```
+nmap -oN scan.txt <target>        
+nmap -oG scan.gnmap <target>      
+nmap -oX scan.xml <target>        
+nmap -oA scan <target>            
+```
+**Normal output**  
+**Grepable output**  
+**XML output**  
+**All formats**
+
+---
+
+## **9. Host Discovery**
+```
+nmap -sn 192.168.1.0/24           
+nmap -PR <target>                 
+nmap -PS <target>                 
+nmap -PE <target>                 
+```
+**Ping sweep**  
+**ARP scan**  
+**SYN ping**  
+**ICMP echo ping**
+
+---
+
+## **10. Firewall / IDS Evasion**
+```
+nmap -f <target>                  
+nmap --mtu 32 <target>            
+nmap -D RND:10 <target>           
+nmap -S <spoofed-IP> <target>     
+nmap --data-length 50 <target>    
+```
+**Fragment packets**  
+**Custom packet size**  
+**Decoy scan**  
+**Spoof source IP**  
+**Random payload**
+
+---
+
+## **11. Useful Combined Examples**
+```
+nmap -sS -sV -O -p- -T4 <target>  
+nmap -A -T4 <target>              
+nmap -sU -sS -p U:53,T:1-1000 <target>  
+nmap --script vuln -sV <target>   
+```
+**Full recon**  
+**Fast detailed scan**  
+**Mixed UDP/TCP**  
+**Vulnerability scan**
+
+---
