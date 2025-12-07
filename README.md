@@ -1,2 +1,2 @@
 # brainbin
-brain bin, we i dump my thoughts
+brain bin, where i can dump my thoughts
